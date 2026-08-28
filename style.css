@@ -1,0 +1,29 @@
+ .ay-bay{
+            background: rgba(255, 255, 255, 0.103);
+            border: 1px solid white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            transition: 0.5s;
+            transform: scale(1);
+           
+        }
+        .ay-bay:hover{
+            background: #629e5a81;
+            transition: 0.5s;
+            transform: scale(1.05);
+            font-size: 20px;
+        }
+.ay-bay a{
+    text-decoration: none;
+    color: #f123c5;
+     font-size: 20px;
+     
+}
+.new-update{
+   
+    display: flex;
+    justify-content: space-between;
+    width: 510px;
+    padding: 10px;
+    margin-left: 910px;
+}

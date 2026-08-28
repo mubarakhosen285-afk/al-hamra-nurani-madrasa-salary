@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>মাদ্রাসা ভর্তি ও বেতন ব্যবস্থাপনা</title>
+    <title>AL HAMRA NURANI MADRASA-AL SISTEM</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
     <style>
+        .ay-bay{
+            background: rgba(255, 255, 255, 0.103);
+            border: 1px solid white;
+            padding: 5px 10px;
+            border-radius: 10px;
+           
+        }
+        .ay-bay:hover{
+            background: #559e4b81;
+        }
+.ay-bay a{
+    text-decoration: none;
+    color: #f123c5;
+     font-size: 20px;
+     
+}
+.new-update{
+   
+    display: flex;
+    justify-content: space-between;
+    width: 510px;
+    padding: 10px;
+    margin-left: 910px;
+}
+
+
+
         :root {
             --green-deep: #0F3D2E;
             --green: #1B5E42;
@@ -1007,7 +1035,837 @@
                 width: 100%;
             }
         }
-    </style>
+        
+
+/* =========================================================
+   RESPONSIVE MOBILE POLISH
+   Desktop layout/functionality remains unchanged.
+   ========================================================= */
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+button,
+input,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 700px) {
+
+    body {
+        padding-top: 154px;
+        font-size: 14px;
+    }
+
+    .topbar {
+        height: 154px;
+        padding: 10px 10px 26px;
+        overflow: hidden;
+    }
+
+    .brand {
+        width: 100%;
+        max-width: none;
+        gap: 9px;
+        min-width: 0;
+    }
+
+    .brand img {
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        border-radius: 9px;
+    }
+
+    .brand > div:not(.new-update) {
+        min-width: 0;
+    }
+
+    .brand h1 {
+        font-size: .91rem;
+        line-height: 1.25;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .brand p {
+        font-size: .63rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* The three utility links become a compact horizontal strip. */
+    .new-update {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        top: 60px;
+        width: auto;
+        margin: 0;
+        padding: 0 0 3px;
+        gap: 6px;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .new-update::-webkit-scrollbar {
+        display: none;
+    }
+
+    .new-update > div {
+        flex: 0 0 auto;
+    }
+
+    .ay-bay {
+        margin: 0;
+        padding: 4px 8px;
+        border-radius: 8px;
+        white-space: nowrap;
+        line-height: 1.1;
+    }
+
+    .ay-bay a {
+        font-size: .68rem;
+    }
+
+    .tabs {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 19px;
+        margin: 0;
+        gap: 5px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab-btn {
+        flex: 1 0 auto;
+        min-height: 34px;
+        padding: 6px 11px;
+        border-radius: 9px;
+        font-size: .73rem;
+        white-space: nowrap;
+    }
+
+    .tab-corner {
+        margin-left: 0;
+    }
+
+    main {
+        width: 100%;
+        max-width: none;
+        margin-top: 0;
+        padding: 12px 8px 45px;
+    }
+
+    .card {
+        padding: 12px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+    }
+
+    .card h2 {
+        font-size: 1.02rem;
+    }
+
+    .card .sub {
+        font-size: .76rem;
+        line-height: 1.45;
+        margin-bottom: 13px;
+    }
+
+    .grid {
+        gap: 10px;
+    }
+
+    label {
+        font-size: .76rem;
+        margin-bottom: 4px;
+    }
+
+    input,
+    select {
+        min-height: 40px;
+        padding: 8px 10px;
+        font-size: .88rem;
+        border-radius: 8px;
+    }
+
+    .row-actions {
+        gap: 7px;
+        margin-top: 13px;
+    }
+
+    .row-actions .btn {
+        flex: 1 1 100%;
+    }
+
+    .btn {
+        min-height: 38px;
+        padding: 8px 12px;
+        font-size: .82rem;
+    }
+
+    .btn-sm {
+        min-height: 32px;
+        padding: 6px 9px;
+        font-size: .72rem;
+    }
+
+    .class-selector {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .class-card {
+        min-height: 102px;
+        padding: 12px 7px 9px;
+        border-radius: 11px;
+        gap: 5px;
+    }
+
+    .class-card .cls-icon {
+        width: 29px;
+        height: 29px;
+    }
+
+    .class-card .cls-label {
+        font-size: .78rem;
+    }
+
+    .class-card .cls-count {
+        font-size: .65rem;
+    }
+
+    .cls-badge {
+        width: 16px;
+        height: 16px;
+        font-size: .58rem;
+        top: -5px;
+        right: -8px;
+    }
+
+    .search-row {
+        gap: 7px;
+        margin-bottom: 10px;
+    }
+
+    .search-row input {
+        min-width: 0;
+    }
+
+    /* ================= STUDENT LIST: MOBILE CARDS ================= */
+
+    .table-wrap {
+        overflow: visible;
+        border: 0;
+    }
+
+    .table-wrap table:not(.ledger) {
+        display: block;
+        width: 100%;
+        table-layout: auto;
+        font-size: .79rem;
+    }
+
+    .table-wrap table:not(.ledger) thead {
+        display: none;
+    }
+
+    .table-wrap table:not(.ledger) tbody {
+        display: grid;
+        gap: 8px;
+    }
+
+    .table-wrap table:not(.ledger) tbody tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        box-shadow: 0 3px 12px rgba(15, 61, 46, .06);
+        overflow: hidden;
+    }
+
+    .table-wrap table:not(.ledger) tbody td {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 7px;
+        min-width: 0;
+        padding: 7px 8px;
+        border-bottom: 1px solid #eee9dc;
+        text-align: right;
+        word-break: break-word;
+        line-height: 1.35;
+    }
+
+    .table-wrap table:not(.ledger) tbody td::before {
+        content: attr(data-label);
+        flex: 0 0 auto;
+        color: var(--ink-soft);
+        font-size: .67rem;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    .table-wrap table:not(.ledger) tbody td:nth-child(1),
+    .table-wrap table:not(.ledger) tbody td:nth-child(2) {
+        background: var(--green-soft);
+    }
+
+    .table-wrap table:not(.ledger) tbody td:nth-child(1) {
+        justify-content: center;
+    }
+
+    .table-wrap table:not(.ledger) tbody td:nth-child(1)::before {
+        display: none;
+    }
+
+    .table-wrap table:not(.ledger) tbody td:nth-child(2) {
+        font-weight: 700;
+        color: var(--green-deep);
+    }
+
+    .table-wrap table:not(.ledger) tbody td:nth-child(2)::before {
+        display: none;
+    }
+
+    .table-wrap table:not(.ledger) tbody td:nth-child(1),
+    .table-wrap table:not(.ledger) tbody td:nth-child(2) {
+        border-bottom: 0;
+    }
+
+    .table-wrap table:not(.ledger) tbody td:nth-child(5),
+    .table-wrap table:not(.ledger) tbody td:nth-child(6),
+    .table-wrap table:not(.ledger) tbody td:nth-child(7),
+    .table-wrap table:not(.ledger) tbody td:nth-child(8) {
+        grid-column: 1 / -1;
+    }
+
+    .table-wrap table:not(.ledger) tbody td:nth-child(8) {
+        justify-content: flex-end;
+        padding: 8px;
+        border-bottom: 0;
+    }
+
+    .table-actions {
+        width: 100%;
+        gap: 6px;
+        justify-content: flex-end;
+    }
+
+    .table-actions .btn {
+        flex: 1 1 0;
+    }
+
+    .roll-chip {
+        padding: 2px 8px;
+        font-size: .72rem;
+    }
+
+    /* ================= FEE LEDGER: EASY TOUCH + SWIPE ================= */
+
+    .ledger-toolbar {
+        gap: 7px;
+        margin-bottom: 9px;
+    }
+
+    .year-switch {
+        width: 100%;
+        justify-content: space-between;
+        padding: 5px;
+    }
+
+    .year-switch button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .year-switch .year-label {
+        font-size: .9rem;
+        min-width: 55px;
+    }
+
+    .ledger-search {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        flex: 1 1 100%;
+    }
+
+    .settle-box {
+        width: 100%;
+        min-height: 40px;
+        padding: 6px 6px 6px 10px;
+        gap: 6px;
+    }
+
+    .settle-amt {
+        font-size: .72rem;
+    }
+
+    .settle-amt b {
+        font-size: .9rem;
+    }
+
+    .ledger-wrap {
+        max-height: 65vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        border-radius: 9px;
+        scrollbar-width: thin;
+    }
+
+    table.ledger {
+        width: max-content;
+        min-width: 900px;
+        table-layout: fixed;
+        font-size: .76rem;
+    }
+
+    table.ledger thead th {
+        padding: 7px 4px;
+        font-size: .7rem;
+    }
+
+    table.ledger tbody td {
+        padding: 7px 4px;
+        min-height: 40px;
+        font-size: .72rem;
+    }
+
+    table.ledger .month-cell {
+        width: 58px;
+        min-width: 58px;
+    }
+
+    table.ledger .paid-amt {
+        padding: 3px 5px;
+        font-size: .69rem;
+        border-radius: 6px;
+    }
+
+    table.ledger .unpaid-dash {
+        font-size: .78rem;
+    }
+
+    /* Keep roll + student name visible while swiping through months. */
+    table.ledger th.col-roll,
+    table.ledger td.col-roll {
+        position: sticky;
+        left: 0;
+        width: 42px;
+        min-width: 42px;
+    }
+
+    table.ledger th.col-name,
+    table.ledger td.col-name {
+        position: sticky;
+        left: 42px;
+        width: 92px;
+        min-width: 92px;
+        padding-right: 5px;
+        font-size: .72rem;
+    }
+
+    table.ledger th.col-father,
+    table.ledger td.col-father {
+        position: static;
+        width: 82px;
+        min-width: 82px;
+        box-shadow: none;
+    }
+
+    table.ledger th.col-total,
+    table.ledger td.col-total {
+        width: 62px;
+        min-width: 62px;
+    }
+
+    table.ledger thead th.col-roll,
+    table.ledger thead th.col-name {
+        z-index: 5;
+    }
+
+    table.ledger tbody td.col-roll,
+    table.ledger tbody td.col-name {
+        background: var(--paper);
+    }
+
+    table.ledger tbody tr:nth-child(even) td.col-roll,
+    table.ledger tbody tr:nth-child(even) td.col-name {
+        background: #FBFAF5;
+    }
+
+    table.ledger tbody tr:hover td.col-roll,
+    table.ledger tbody tr:hover td.col-name {
+        background: var(--green-soft);
+    }
+
+    /* ================= PAYMENT MODAL ================= */
+
+    .modal-overlay {
+        align-items: flex-end;
+        padding: 7px;
+    }
+
+    .modal-box {
+        width: 100%;
+        max-width: 520px;
+        max-height: 91vh;
+        padding: 15px;
+        border-radius: 15px 15px 10px 10px;
+        overflow-y: auto;
+    }
+
+    .modal-box h3 {
+        font-size: .98rem;
+        padding-right: 25px;
+    }
+
+    .modal-box .modal-sub {
+        font-size: .72rem;
+        margin-bottom: 11px;
+    }
+
+    .modal-form {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .modal-form .field:first-child,
+    .modal-form .field:last-child {
+        grid-column: auto;
+    }
+
+    .modal-form input {
+        min-height: 44px;
+        font-size: .95rem;
+    }
+
+    .modal-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+        margin-top: 11px;
+    }
+
+    .modal-actions .btn-primary {
+        grid-column: 1 / -1;
+    }
+
+    .modal-actions .btn-alert {
+        grid-column: 1 / -1;
+    }
+
+    .modal-actions .btn-ghost {
+        grid-column: 1 / -1;
+    }
+
+    .existing-payments .pay-row {
+        padding: 7px 9px;
+        font-size: .76rem;
+    }
+
+    .sms-status {
+        font-size: .7rem;
+    }
+
+    .msg {
+        font-size: .76rem;
+        padding: 8px 10px;
+    }
+
+    footer {
+        font-size: 11px;
+        padding: 20px 10px 8px;
+    }
+}
+
+@media (max-width: 380px) {
+    .brand h1 {
+        font-size: .82rem;
+    }
+
+    .brand p {
+        font-size: .58rem;
+    }
+
+    .new-update {
+        top: 58px;
+    }
+
+    .ay-bay a {
+        font-size: .62rem;
+    }
+
+    .tab-btn {
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: .68rem;
+    }
+
+    body {
+        padding-top: 150px;
+    }
+
+    .topbar {
+        height: 150px;
+    }
+
+    .tabs {
+        bottom: 18px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .class-selector {
+        gap: 6px;
+    }
+
+    .class-card {
+        min-height: 94px;
+    }
+
+    .table-wrap table:not(.ledger) tbody tr {
+        grid-template-columns: 92px 1fr;
+    }
+}
+
+    
+/* =========================================================
+   STUDENT LIST — POLISHED MOBILE CARD DESIGN
+   Only the student-list presentation is enhanced.
+========================================================= */
+
+@media (max-width: 640px) {
+
+    #panel-students .card {
+        padding: 12px;
+    }
+
+    #panel-students h2 {
+        font-size: 1.05rem;
+        margin-bottom: 3px;
+    }
+
+    #panel-students .sub {
+        font-size: .72rem;
+        line-height: 1.45;
+        margin-bottom: 10px;
+    }
+
+    #panel-students .search-row {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        padding: 5px 0 8px;
+        background: var(--paper);
+    }
+
+    #panel-students .search-row input {
+        height: 40px;
+        border-radius: 10px;
+        font-size: .78rem;
+        padding: 0 12px;
+        box-shadow: 0 2px 8px rgba(15,61,46,.06);
+    }
+
+    #panel-students .table-wrap {
+        margin-top: 2px;
+    }
+
+    #panel-students .table-wrap table:not(.ledger) tbody {
+        gap: 10px;
+    }
+
+    #panel-students .table-wrap table:not(.ledger) tbody tr {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: var(--paper);
+        border: 1px solid #e5e0d4;
+        border-radius: 14px;
+        box-shadow: 0 4px 14px rgba(15,61,46,.07);
+    }
+
+    /* Name + roll = compact identity header */
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-roll,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-name {
+        min-height: 48px;
+        padding: 8px 10px;
+        background: linear-gradient(180deg, #f1f8f3, #eaf4ed);
+        border-bottom: 1px solid #dfe9e1;
+    }
+
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-roll {
+        justify-content: flex-start;
+        border-radius: 13px 0 0 0;
+    }
+
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-name {
+        justify-content: flex-start;
+        text-align: left;
+        border-radius: 0 13px 0 0;
+        overflow: hidden;
+    }
+
+    #panel-students .student-name {
+        font-size: .82rem;
+        font-weight: 700;
+        color: var(--green-deep);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    #panel-students .student-roll::before,
+    #panel-students .student-name::before {
+        display: none !important;
+    }
+
+    #panel-students .student-roll .roll-chip {
+        font-size: .68rem;
+        padding: 4px 8px;
+        border: 1px solid rgba(177,136,54,.22);
+    }
+
+    /* Information rows */
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-class,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-father,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-address,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-guardian,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-mobile {
+        min-height: 35px;
+        padding: 6px 9px;
+        background: #fff;
+        border-bottom: 1px solid #eeeae1;
+        font-size: .72rem;
+        line-height: 1.35;
+    }
+
+    #panel-students .table-wrap table:not(.ledger) tbody td::before {
+        font-size: .62rem;
+        font-weight: 600;
+        color: #7a827d;
+        margin-right: 6px;
+    }
+
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-class {
+        color: var(--green-deep);
+        font-weight: 700;
+    }
+
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-mobile {
+        color: var(--green-deep);
+        font-weight: 600;
+        letter-spacing: .1px;
+    }
+
+    /* Address, guardian and phone get full width */
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-address,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-guardian,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-mobile,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-actions-cell {
+        grid-column: 1 / -1;
+    }
+
+    /* Action footer */
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-actions-cell {
+        min-height: 44px;
+        padding: 7px 9px 9px;
+        background: #faf9f5;
+        border-bottom: 0;
+        border-radius: 0 0 13px 13px;
+        justify-content: stretch;
+    }
+
+    #panel-students .student-actions-cell::before {
+        display: none;
+    }
+
+    #panel-students .table-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 7px;
+    }
+
+    #panel-students .table-actions .btn {
+        min-height: 34px;
+        padding: 6px 8px;
+        border-radius: 8px;
+        font-size: .70rem;
+        line-height: 1;
+    }
+
+    /* Make long Bangla text safe */
+    #panel-students .table-wrap table:not(.ledger) tbody td {
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    #panel-students .empty-state {
+        padding: 28px 12px;
+        border: 1px dashed #d9d4c8;
+        border-radius: 12px;
+        background: #fbfaf7;
+        font-size: .78rem;
+    }
+}
+
+@media (max-width: 380px) {
+    #panel-students .table-wrap table:not(.ledger) tbody tr {
+        border-radius: 12px;
+    }
+
+    #panel-students .student-name {
+        font-size: .75rem;
+    }
+
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-class,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-father,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-address,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-guardian,
+    #panel-students .table-wrap table:not(.ledger) tbody td.student-mobile {
+        font-size: .68rem;
+    }
+
+    #panel-students .table-actions .btn {
+        font-size: .66rem;
+        min-height: 32px;
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -1024,7 +1882,19 @@
                 <h1>আল হামরা নূরানী মাদ্রাসা, ধানুয়াখালী</h1>
                 <p>ছাত্র-ছাত্রী ভর্তি নিবন্ধন ও মাসিক বেতন খাতা</p>
             </div>
-
+                      <!-- new all update starts here -->
+            <div class="new-update">
+                 
+                  <div >
+                            <h1 class="ay-bay"><a  href=" https://mubarakhosen285-afk.github.io/Al-hamra-Nurani-madrasa-calculate/" > আয়-ব্যয় হিসাব তৈরি</a></h1>
+                  </div>
+                   <div>
+                       <h1 class="ay-bay"><a href="https://mubarakhosen285-afk.github.io/-AHNM-RESULTS-/">ফলাফল তৈরি</a></h1>
+                  </div>
+                  <div>
+                    <h1 class="ay-bay"> <a href="https://mubarakhosen285-afk.github.io/Al-hamra-Nurani-madrasa-calculate/public.html">আয়-ব্যয় পাবলিক</a></h1>
+                  </div>
+            </div>
         </div>
 
         <div class="tabs">
@@ -3846,7 +4716,7 @@ ${month} মাসের বেতন এখনও বকেয়া রয়�
 
                     <tr>
 
-                        <td>
+                        <td data-label="রোল" class="student-roll">
                             <span class="roll-chip">
                                 ${escapeHtml(
                                     toBn(s.roll)
@@ -3854,25 +4724,25 @@ ${month} মাসের বেতন এখনও বকেয়া রয়�
                             </span>
                         </td>
 
-                        <td>
+                        <td data-label="নাম" class="student-name">
                             ${escapeHtml(
                                 s.name
                             )}
                         </td>
 
-                        <td>
+                        <td data-label="শ্রেণি" class="student-class">
                             ${escapeHtml(
                                 s.className || '-'
                             )}
                         </td>
 
-                        <td>
+                        <td data-label="পিতার নাম" class="student-father">
                             ${escapeHtml(
                                 s.father
                             )}
                         </td>
 
-                        <td>
+                        <td data-label="ঠিকানা" class="student-address">
                             ${escapeHtml(
                                 s.village
                             )},
@@ -3881,19 +4751,19 @@ ${month} মাসের বেতন এখনও বকেয়া রয়�
                             )}
                         </td>
 
-                        <td>
+                        <td data-label="অভিভাবক" class="student-guardian">
                             ${escapeHtml(
                                 s.guardian
                             )}
                         </td>
 
-                        <td>
+                        <td data-label="মোবাইল" class="student-mobile">
                             ${escapeHtml(
                                 s.mobile
                             )}
                         </td>
 
-                        <td>
+                        <td data-label="কার্যক্রম" class="student-actions-cell">
 
                             <div class="table-actions">
 
