@@ -11,7 +11,6 @@
             background: #629e5a81;
             transition: 0.5s;
             transform: scale(1.05);
-            font-size: 20px;
         }
 .ay-bay a{
     text-decoration: none;
@@ -26,4 +25,10 @@
     width: 510px;
     padding: 10px;
     margin-left: 910px;
+}
+@media (max width:720px){
+     .ay-bay:hover{
+            background: #629e5a81;
+            transition: 0.5s;
+            transform: scale(2)}
 }
