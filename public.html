@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL HAMRA NURANI MADRASA — all sistem</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --green-deep: #0F3D2E;
+            --green: #1B5E42;
+            --green-soft: #E7EFE8;
+            --gold: #C9A227;
+            --gold-soft: #F4E9C8;
+            --cream: #FBF7EE;
+            --paper: #FFFFFF;
+            --ink: #22281F;
+            --ink-soft: #5B6459;
+            --line: #DDD6C4;
+            --red: #A6402F;
+            --shadow: 0 6px 20px rgba(15, 61, 46, 0.08);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding-top: 170px;
+            background: var(--cream);
+            color: var(--ink);
+            font-family: 'Hind Siliguri', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--gold-soft); }
+
+        button, input, select, a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* ================= HEADER ================= */
+
+        .topbar {
+            background: linear-gradient(180deg, var(--green-deep), var(--green));
+            color: #fff;
+            padding: 22px 24px 40px;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            overflow: hidden;
+            height: 170px;
+            z-index: 1000;
+        }
+
+        .topbar::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 14px;
+            background-image: radial-gradient(circle at 10px 0, transparent 10px, var(--cream) 10.5px);
+            background-size: 20px 14px;
+            background-repeat: repeat-x;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            max-width: 1780px;
+            margin: 0 auto;
+        }
+
+        .brand img {
+            height: 60px;
+            width: 60px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: var(--green);
+        }
+
+        .brand h1 {
+            font-family: 'Noto Serif Bengali', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0;
+            letter-spacing: .2px;
+        }
+
+        .brand p {
+            margin: 2px 0 0;
+            font-size: .85rem;
+            color: var(--gold-soft);
+            letter-spacing: .5px;
+        }
+
+        .view-badge {
+            margin-left: auto;
+            background: var(--gold);
+            color: var(--green-deep);
+            font-weight: 700;
+            font-size: .78rem;
+            padding: 6px 14px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .quick-links {
+            max-width: 1780px;
+            margin: 12px auto 0;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .ql-link {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.28);
+            padding: 6px 13px;
+            border-radius: 10px;
+            transition: .2s;
+        }
+
+        .ql-link:hover { background: rgba(255,255,255,0.2); transform: translateY(-1px); }
+
+        .ql-link a {
+            text-decoration: none;
+            color: var(--gold-soft);
+            font-size: .85rem;
+            font-weight: 600;
+        }
+
+        .tabs {
+            /* max-width: 1780px;
+            margin: 16px auto 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap; */
+        }
+
+        .tab-btn {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            padding: 9px 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: .92rem;
+            font-weight: 500;
+            transition: all .15s ease;
+        }
+
+        .tab-btn:hover { background: rgba(255,255,255,0.16); }
+
+        .tab-btn.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--green-deep);
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 1780px;
+            margin: 0 auto;
+            padding: 28px 20px 80px;
+            margin-top: -25px;
+        }
+
+        .panel { display: none; }
+        .panel.active { display: block; animation: fadeIn .25s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            padding: 26px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-family: 'Noto Serif Bengali', serif;
+            font-size: 1.2rem;
+            color: var(--green-deep);
+            margin: 0 0 4px;
+        }
+
+        .card .sub {
+            color: var(--ink-soft);
+            font-size: .88rem;
+            margin: 0 0 20px;
+        }
+
+        .view-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--green-soft);
+            color: var(--green-deep);
+            border: 1px solid #bcd6c4;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: .8rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        input {
+            width: 100%;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: .95rem;
+            padding: 10px 12px;
+            border: 1.5px solid var(--line);
+            border-radius: 8px;
+            background: #fff;
+            color: var(--ink);
+            outline: none;
+            transition: border-color .15s;
+        }
+
+        input:focus { border-color: var(--green); }
+
+        .search-row { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
+        .search-row input { flex: 1; min-width: 180px; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 1.1rem; table-layout: fixed; }
+
+        thead th {
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 600;
+            color: var(--green-deep);
+            border-bottom: 2px solid var(--green-soft);
+            padding: 10px 6px;
+            white-space: nowrap;
+        }
+
+        tbody td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 11px 6px;
+            border-bottom: 1px solid var(--line);
+            color: var(--ink);
+            word-break: break-word;
+        }
+
+        table col.col-roll { width: 9%; }
+        table col.col-name { width: 12%; }
+        table col.col-class { width: 12%; }
+        table col.col-father { width: 17%; }
+        table col.col-addr { width: 20%; }
+        table col.col-guard { width: 15%; }
+        table col.col-mobile { width: 15%; }
+
+        tbody tr:hover { background: var(--green-soft); }
+
+        .roll-chip {
+            display: inline-block;
+            background: var(--gold-soft);
+            color: var(--green-deep);
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-size: 1rem;
+        }
+
+        .empty-state { text-align: center; padding: 40px 20px; color: var(--ink-soft); }
+        .empty-state svg { width: 52px; height: 52px; margin-bottom: 10px; opacity: .5; }
+
+        .table-wrap { overflow-x: auto; }
+
+        /* ================= CLASS SELECTOR ================= */
+
+        .class-selector {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width:640px) { .class-selector { grid-template-columns: 1fr 1fr; } }
+
+        .class-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 14px;
+            padding: 18px 10px 14px;
+            cursor: pointer;
+            transition: all .15s ease;
+        }
+
+        .class-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: var(--shadow); }
+
+        .class-card.active {
+            background: linear-gradient(180deg, var(--green-deep), var(--green));
+            border-color: var(--green-deep);
+            box-shadow: var(--shadow);
+        }
+
+        .class-card .cls-icon { width: 34px; height: 34px; color: var(--green-deep); }
+        .class-card.active .cls-icon { color: var(--gold-soft); }
+
+        .cls-icon-wrap { position: relative; display: flex; }
+
+        .cls-badge {
+            position: absolute; top: -6px; right: -10px;
+            background: var(--gold); color: var(--green-deep);
+            font-size: .65rem; font-weight: 800;
+            width: 18px; height: 18px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            border: 2px solid var(--paper);
+        }
+
+        .class-card.active .cls-badge { border-color: var(--green-deep); }
+
+        .class-card .cls-label {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 600; font-size: .92rem; color: var(--ink); text-align: center;
+        }
+
+        .class-card.active .cls-label { color: #fff; }
+        .class-card .cls-count { font-size: .75rem; color: var(--ink-soft); }
+        .class-card.active .cls-count { color: var(--gold-soft); }
+
+        /* ================= LEDGER ================= */
+
+        .ledger-toolbar {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 14px; flex-wrap: wrap; margin-bottom: 18px;
+        }
+
+        .year-switch {
+            display: flex; align-items: center; gap: 8px;
+            background: var(--green-soft); border: 1px solid #cfe0d3;
+            border-radius: 10px; padding: 6px 8px;
+        }
+
+        .year-switch button {
+            width: 30px; height: 30px; border: none; border-radius: 7px;
+            background: #fff; color: var(--green-deep);
+            font-size: 1rem; font-weight: 700; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .year-switch button:hover { background: var(--gold-soft); }
+
+        .year-switch .year-label {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 700; font-size: 1.05rem; color: var(--green-deep);
+            min-width: 70px; text-align: center;
+        }
+
+        .ledger-search { max-width: 280px; min-width: 180px; flex: 1; }
+
+        .settle-box {
+            display: flex; align-items: center; gap: 10px;
+            background: var(--gold-soft); border: 1px solid #e6d59a;
+            border-radius: 10px; padding: 8px 16px;
+        }
+
+        .settle-amt { font-size: .85rem; color: var(--green-deep); white-space: nowrap; }
+        .settle-amt b { font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 1.05rem; }
+
+        .ledger-wrap {
+            overflow: auto;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            max-height: 72vh;
+        }
+
+        table.ledger {
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 1rem;
+            min-width: 100%;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        table.ledger thead th {
+            position: sticky; top: 0; z-index: 2;
+            background: var(--green-deep); color: #fff;
+            text-align: center; padding: 8px 3px;
+            font-weight: 600; white-space: nowrap;
+            border-bottom: 1px solid var(--green-deep);
+            border-right: 1px solid rgba(255,255,255,0.12);
+        }
+
+        table.ledger thead th.col-total { background: var(--gold); color: var(--green-deep); }
+
+        table.ledger tbody td {
+            padding: 6px 4px; text-align: center;
+            border-bottom: 1px solid var(--line);
+            border-right: 1px solid var(--line);
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+
+        table.ledger tbody tr:nth-child(even) { background: #FBFAF5; }
+        table.ledger tbody tr:hover { background: var(--green-soft); }
+
+        th.col-roll, td.col-roll {
+            position: sticky; left: 0; z-index: 1; background: inherit;
+            text-align: center; width: 48px;
+        }
+
+        th.col-name, td.col-name {
+            position: sticky; left: 48px; z-index: 1; background: inherit;
+            text-align: right; width: 110px; padding-right: 8px;
+        }
+
+        th.col-father, td.col-father {
+            position: sticky; left: 158px; z-index: 1; background: inherit;
+            text-align: right; width: 110px; padding-right: 8px;
+            box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+        }
+
+        thead th.col-roll, thead th.col-name, thead th.col-father { background: var(--green-deep); z-index: 3; }
+        tbody td.col-roll, tbody td.col-name, tbody td.col-father { background: var(--paper); }
+        tbody tr:nth-child(even) td.col-roll,
+        tbody tr:nth-child(even) td.col-name,
+        tbody tr:nth-child(even) td.col-father { background: #FBFAF5; }
+        tbody tr:hover td.col-roll, tbody tr:hover td.col-name, tbody tr:hover td.col-father { background: var(--green-soft); }
+
+        .paid-amt {
+            display: inline-block;
+            background: var(--green-soft); color: var(--green-deep);
+            border: 1px solid #bcd6c4; border-radius: 7px;
+            padding: 2px 6px; font-weight: 700; font-size: .96rem;
+        }
+
+        .unpaid-dash { color: #C9C2AC; font-size: 1rem; }
+
+        td.col-total { font-weight: 700; color: var(--green-deep); background: var(--gold-soft) !important; width: 76px; }
+
+        tfoot td {
+            padding: 10px 6px; text-align: center; font-weight: 700;
+            border-top: 2px solid var(--green-deep);
+            background: var(--green-soft); color: var(--green-deep); white-space: nowrap;
+        }
+
+        tfoot td.col-name { text-align: right; background: var(--green-soft); }
+        tfoot td.col-grand { background: var(--gold); color: var(--green-deep); }
+
+        .loading { text-align: center; padding: 30px; color: var(--ink-soft); font-size: .9rem; }
+
+        footer {
+            text-align: center;
+            color: var(--ink-soft);
+            font-size: 15px;
+            padding: 30px 20px 10px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            body { padding-top: 168px; font-size: 14px; }
+
+            .topbar { height: 168px; padding: 12px 10px 26px; }
+
+            .brand { gap: 9px; flex-wrap: wrap; }
+
+            .brand img { width: 42px; height: 42px; flex: 0 0 42px; border-radius: 9px; }
+
+            .brand h1 { font-size: .92rem; line-height: 1.25; }
+
+            .brand p { font-size: .65rem; }
+
+            .view-badge { font-size: .68rem; padding: 5px 10px; }
+
+            .quick-links {
+                margin-top: 8px;
+                gap: 6px;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .quick-links::-webkit-scrollbar { display: none; }
+
+            .ql-link { flex: 0 0 auto; padding: 5px 10px; }
+            .ql-link a { font-size: .72rem; }
+
+            .tabs { margin-top: 10px; gap: 5px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+            .tabs::-webkit-scrollbar { display: none; }
+
+            .tab-btn { flex: 1 0 auto; min-height: 34px; padding: 6px 12px; border-radius: 9px; font-size: .76rem; white-space: nowrap; }
+
+            main { padding: 12px 8px 45px; margin-top: 0; }
+
+            .card { padding: 12px; border-radius: 12px; margin-bottom: 12px; }
+            .card h2 { font-size: 1.02rem; }
+            .card .sub { font-size: .76rem; line-height: 1.45; margin-bottom: 12px; }
+
+            .class-selector { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; margin-bottom: 12px; }
+
+            .class-card { min-height: 100px; padding: 12px 7px 9px; border-radius: 11px; gap: 5px; }
+            .class-card .cls-icon { width: 28px; height: 28px; }
+            .class-card .cls-label { font-size: .78rem; }
+            .class-card .cls-count { font-size: .65rem; }
+
+            .search-row { gap: 7px; margin-bottom: 10px; }
+            .search-row input { min-width: 0; min-height: 40px; }
+
+            /* Student cards on mobile */
+            .table-wrap { overflow: visible; border: 0; }
+
+            .table-wrap table:not(.ledger) { display: block; width: 100%; table-layout: auto; font-size: .79rem; }
+            .table-wrap table:not(.ledger) thead { display: none; }
+            .table-wrap table:not(.ledger) tbody { display: grid; gap: 10px; }
+
+            .table-wrap table:not(.ledger) tbody tr {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background: var(--paper);
+                border: 1px solid #e5e0d4;
+                border-radius: 14px;
+                box-shadow: 0 4px 14px rgba(15,61,46,.07);
+                overflow: hidden;
+            }
+
+            .table-wrap table:not(.ledger) tbody td {
+                display: flex; align-items: center; justify-content: space-between;
+                gap: 7px; min-width: 0; padding: 8px 10px;
+                border-bottom: 1px solid #eeeae1;
+                text-align: right; word-break: break-word; line-height: 1.35;
+                overflow-wrap: anywhere;
+            }
+
+            .table-wrap table:not(.ledger) tbody td::before {
+                content: attr(data-label);
+                flex: 0 0 auto; color: var(--ink-soft);
+                font-size: .64rem; font-weight: 600; text-align: left; margin-right: 6px;
+            }
+
+            .table-wrap table:not(.ledger) tbody td.student-roll,
+            .table-wrap table:not(.ledger) tbody td.student-name {
+                background: linear-gradient(180deg,#f1f8f3,#eaf4ed);
+            }
+
+            .table-wrap table:not(.ledger) tbody td.student-roll {
+                justify-content: flex-start; border-radius: 13px 0 0 0;
+            }
+
+            .table-wrap table:not(.ledger) tbody td.student-roll::before { display: none; }
+
+            .table-wrap table:not(.ledger) tbody td.student-name {
+                justify-content: flex-start; text-align: left; border-radius: 0 13px 0 0;
+                font-weight: 700; color: var(--green-deep); font-size: .82rem;
+            }
+
+            .table-wrap table:not(.ledger) tbody td.student-name::before { display: none; }
+
+            .table-wrap table:not(.ledger) tbody td.student-class { color: var(--green-deep); font-weight: 700; }
+            .table-wrap table:not(.ledger) tbody td.student-mobile {
+                color: var(--green-deep); font-weight: 600;
+                grid-column: 1 / -1; border-bottom: 0;
+            }
+
+            .table-wrap table:not(.ledger) tbody td.student-address,
+            .table-wrap table:not(.ledger) tbody td.student-guardian {
+                grid-column: 1 / -1;
+            }
+
+            .roll-chip { padding: 2px 8px; font-size: .72rem; }
+
+            /* Fee ledger mobile */
+            .ledger-toolbar { gap: 7px; margin-bottom: 9px; }
+            .year-switch { width: 100%; justify-content: space-between; padding: 5px; }
+            .year-switch button { width: 34px; height: 34px; }
+            .year-switch .year-label { font-size: .9rem; min-width: 55px; }
+            .ledger-search { width: 100%; max-width: none; min-width: 0; flex: 1 1 100%; }
+
+            .settle-box { width: 100%; min-height: 40px; padding: 6px 10px; gap: 6px; }
+            .settle-amt { font-size: .72rem; }
+            .settle-amt b { font-size: .9rem; }
+
+            .ledger-wrap { max-height: 65vh; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; border-radius: 9px; }
+
+            table.ledger { width: max-content; min-width: 900px; table-layout: fixed; font-size: .76rem; }
+            table.ledger thead th { padding: 7px 4px; font-size: .7rem; }
+            table.ledger tbody td { padding: 7px 4px; min-height: 40px; font-size: .72rem; }
+
+            table.ledger th.col-roll, table.ledger td.col-roll { width: 42px; min-width: 42px; }
+            table.ledger th.col-name, table.ledger td.col-name { left: 42px; width: 92px; min-width: 92px; padding-right: 5px; font-size: .72rem; }
+            table.ledger th.col-father, table.ledger td.col-father { position: static; width: 82px; min-width: 82px; box-shadow: none; }
+            table.ledger th.col-total, table.ledger td.col-total { width: 62px; min-width: 62px; }
+
+            footer { font-size: 11px; padding: 20px 10px 8px; }
+        }
+
+        @media (max-width: 380px) {
+            .brand h1 { font-size: .84rem; }
+            .brand p { font-size: .6rem; }
+            body { padding-top: 162px; }
+            .topbar { height: 162px; }
+            .class-card { min-height: 94px; }
+            .table-wrap table:not(.ledger) tbody tr { grid-template-columns: 92px 1fr; }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="topbar">
+
+        <div class="brand">
+
+            <img src="madrasa.jpeg" alt="logo">
+
+            <div>
+                <h1>আল হামরা নূরানী মাদ্রাসা, ধানুয়াখালী</h1>
+                <p>পাবলিক তথ্য — শুধুমাত্র দেখার জন্য</p>
+            </div>
+
+            <span class="view-badge"> 
+                <a href="https://mubarakhosen285-afk.github.io/Al-hamra-Nurani-madrasa-calculate/public.html">আয়-ব্যয় পাবলিক</a>
+            </span>
+
+        </div>
+
+
+           
+
+        </div>
+
+        <div class="tabs">
+
+            <button class="tab-btn active" data-tab="fees">বেতন খাতা</button>
+            <button class="tab-btn" data-tab="students">শিক্ষার্থী তালিকা</button>
+
+        </div>
+
+    </div>
+
+    <main>
+
+        <!-- ================= STUDENT LIST ================= -->
+
+        <section class="panel" id="panel-students">
+
+            <div class="card">
+
+                <h2>শিক্ষার্থী তালিকা</h2>
+
+                <p class="sub" id="studentsTopSub">
+                    প্রথমে একটি শ্রেণি বাছাই করুন — সেই শ্রেণির শিক্ষার্থী তালিকা দেখা যাবে।
+                </p>
+
+                
+
+                <div class="class-selector" id="studentClassSelector"></div>
+
+                <div id="studentsListArea" style="display:none;">
+
+                    <div class="search-row">
+                        <input type="text" id="studentSearch" placeholder="রোল / নাম / মোবাইল দিয়ে খুঁজুন...">
+                    </div>
+
+                    <div id="studentsTableWrap" class="table-wrap">
+                        <div class="loading">তথ্য লোড হচ্ছে...</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= FEE REGISTER ================= -->
+
+        <section class="panel active" id="panel-fees">
+
+            <div class="card">
+
+                <h2>বেতন খাতা</h2>
+
+                <p class="sub" id="feeTopSub">
+                    প্রথমে একটি শ্রেণি বাছাই করুন — সেই শ্রেণির বেতন খাতা খুলে যাবে।
+                </p>
+
+                <div class="class-selector" id="classSelector"></div>
+
+                <div id="ledgerArea" style="display:none;">
+
+                    <div class="ledger-toolbar">
+
+                        <div class="year-switch">
+                            <button type="button" id="yearPrev">‹</button>
+                            <span class="year-label" id="yearLabel"></span>
+                            <button type="button" id="yearNext">›</button>
+                        </div>
+
+                        <input type="text" id="ledgerSearch" class="ledger-search" placeholder="রোল বা নাম দিয়ে খুঁজুন...">
+
+                        <div class="settle-box">
+                            <span class="settle-amt">
+                                সর্বশেষ হিসাবের পর আদায়ঃ <b id="settleAmt">৳০</b>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div id="ledgerWrap" class="ledger-wrap">
+                        <div class="loading">বেতন খাতা লোড হচ্ছে...</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        @copyright-2026 আল হামরা নূরানী মাদ্রাসা, ধানুয়াখালী — পাবলিক তথ্য ভিউ
+
+        <br>
+
+        <span style="font-size:15px;color:#7506f3;">created by MOBARAK HOSEN</span>
+
+    </footer>
+
+
+    <script>
+
+        /* =========================================================
+           READ-ONLY STORAGE (no write functions exposed on purpose)
+        ========================================================= */
+
+        const SHARED = true;
+        const memStore = {};
+
+        window.firebaseReady = new Promise((resolve) => {
+            window.__resolveFirebaseReady = resolve;
+        });
+
+        async function waitForFirebase() {
+            try {
+                const db = await window.firebaseReady;
+                return db || window.firebaseDb || null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        let firebaseDataCache = null;
+        let firebaseDataLoadPromise = null;
+
+        async function loadFirebaseDataCache(db) {
+
+            if (firebaseDataCache !== null) return firebaseDataCache;
+            if (firebaseDataLoadPromise) return firebaseDataLoadPromise;
+
+            firebaseDataLoadPromise = (async () => {
+                try {
+                    const snap = await window.firebaseFns.get(window.firebaseFns.ref(db, 'madrasaData'));
+                    firebaseDataCache = snap.exists() ? (snap.val() || {}) : {};
+                    Object.keys(firebaseDataCache).forEach(key => { memStore[key] = firebaseDataCache[key]; });
+                    return firebaseDataCache;
+                } catch (e) {
+                    console.warn('Firebase initial data load failed:', e);
+                    firebaseDataCache = {};
+                    return firebaseDataCache;
+                }
+            })();
+
+            return firebaseDataLoadPromise;
+        }
+
+        async function storeGet(key) {
+
+            if (Object.prototype.hasOwnProperty.call(memStore, key)) {
+                return memStore[key];
+            }
+
+            const db = await waitForFirebase();
+
+            if (db && window.firebaseFns) {
+                try {
+                    const data = await loadFirebaseDataCache(db);
+                    if (Object.prototype.hasOwnProperty.call(data, key)) {
+                        memStore[key] = data[key];
+                        return data[key];
+                    }
+                } catch (e) {
+                    console.warn('Firebase read failed:', e);
+                }
+            }
+
+            if (
+                typeof window.storage === 'object' &&
+                window.storage !== null &&
+                typeof window.storage.get === 'function'
+            ) {
+                try {
+                    const r = await window.storage.get(key, SHARED);
+                    if (r && r.value !== undefined) {
+                        memStore[key] = r.value;
+                        return r.value;
+                    }
+                } catch (e) {}
+            }
+
+            return null;
+        }
+
+        async function storeListKeys(prefix) {
+
+            const keySet = new Set();
+
+            Object.keys(memStore).forEach(k => {
+                if (k.startsWith(prefix)) keySet.add(k);
+            });
+
+            const db = await waitForFirebase();
+
+            if (db && window.firebaseFns) {
+                try {
+                    const data = await loadFirebaseDataCache(db);
+                    Object.keys(data).forEach(k => {
+                        if (k.startsWith(prefix)) keySet.add(k);
+                    });
+                } catch (e) {}
+            }
+
+            if (
+                typeof window.storage === 'object' &&
+                window.storage !== null &&
+                typeof window.storage.list === 'function'
+            ) {
+                try {
+                    const r = await window.storage.list(prefix, SHARED);
+                    (r && r.keys ? r.keys : []).forEach(k => keySet.add(k));
+                } catch (e) {}
+            }
+
+            return Array.from(keySet);
+        }
+
+
+        /* =========================================================
+           CLASS / STUDENT READ HELPERS
+        ========================================================= */
+
+        const classCodeMap = {
+            'শিশু শ্রেণি': 'c0',
+            'প্রথম শ্রেণি': 'c1',
+            'দ্বিতীয় শ্রেণি': 'c2',
+            'তৃতীয় শ্রেণি': 'c3'
+        };
+
+        function classCode(className) {
+            return classCodeMap[className] || 'legacy';
+        }
+
+        async function getFees(roll, className) {
+
+            const raw = await storeGet(`fee:${classCode(className)}:${roll}`);
+            if (!raw) return [];
+
+            try {
+                return JSON.parse(raw);
+            } catch (e) {
+                return [];
+            }
+        }
+
+        async function listStudents() {
+
+            const keys = await storeListKeys('student:');
+            const out = [];
+
+            for (const k of keys) {
+                const raw = await storeGet(k);
+                if (raw) {
+                    try {
+                        out.push(JSON.parse(raw));
+                    } catch (e) {}
+                }
+            }
+
+            out.sort((a, b) =>
+                (parseInt(a.roll) || 0) - (parseInt(b.roll) || 0) ||
+                String(a.roll).localeCompare(String(b.roll))
+            );
+
+            return out;
+        }
+
+
+        /* =========================================================
+           HELPERS
+        ========================================================= */
+
+        const banglaDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+
+        function toBn(num) {
+            return String(num ?? '').replace(/[0-9]/g, d => banglaDigits[d]);
+        }
+
+        function fmtTaka(n) {
+            const v = Number(n) || 0;
+            return '৳' + toBn(v.toLocaleString('en-IN'));
+        }
+
+        const bnMonths = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
+        const bnMonthsShort = ['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টে','অক্টো','নভে','ডিসে'];
+
+        function escapeHtml(s) {
+            return String(s ?? '').replace(/[&<>"']/g, c => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[c]));
+        }
+
+
+        /* =========================================================
+           TAB MANAGEMENT
+        ========================================================= */
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+
+            btn.addEventListener('click', () => {
+
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+
+                btn.classList.add('active');
+                document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+
+                if (btn.dataset.tab === 'students') renderStudentsTable();
+                if (btn.dataset.tab === 'fees') renderFeeLedger();
+
+            });
+
+        });
+
+
+        /* =========================================================
+           CLASS DEFINITIONS
+        ========================================================= */
+
+        const classDefs = [
+            { key: 'শিশু শ্রেণি', badge: '০' },
+            { key: 'প্রথম শ্রেণি', badge: '১' },
+            { key: 'দ্বিতীয় শ্রেণি', badge: '২' },
+            { key: 'তৃতীয় শ্রেণি', badge: '৩' }
+        ];
+
+        const classIconSvg =
+            `<svg class="cls-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5V6.2c0-.9.7-1.6 1.6-1.7C7.6 4.3 10 4.6 12 6c2-1.4 4.4-1.7 6.4-1.5.9.1 1.6.8 1.6 1.7v13.3"/>
+                <path d="M4 19.5c1.9-.7 4.6-.9 6.4-.5.6.1 1.2.4 1.6.7"/>
+                <path d="M20 19.5c-1.9-.7-4.6-.9-6.4-.5-.6.1-1.2.4-1.6.7"/>
+                <path d="M12 6v13.7"/>
+            </svg>`;
+
+
+        /* =========================================================
+           STUDENTS TABLE (view only)
+        ========================================================= */
+
+        let allStudentsCache = [];
+        let selectedStudentClass = null;
+
+        async function renderStudentsTable() {
+
+            allStudentsCache = await listStudents();
+            renderStudentClassCards();
+
+            if (selectedStudentClass) applyStudentClassFilter();
+        }
+
+        function renderStudentClassCards() {
+
+            const wrap = document.getElementById('studentClassSelector');
+
+            wrap.innerHTML = classDefs.map(c => {
+
+                const count = allStudentsCache.filter(s => s.className === c.key).length;
+                const activeCls = selectedStudentClass === c.key ? 'active' : '';
+
+                return `
+                    <div class="class-card ${activeCls}" onclick="selectStudentClass('${escapeHtml(c.key)}')">
+                        <span class="cls-icon-wrap">
+                            ${classIconSvg}
+                            <span class="cls-badge">${c.badge}</span>
+                        </span>
+                        <span class="cls-label">${c.key}</span>
+                        <span class="cls-count">${toBn(count)} জন শিক্ষার্থী</span>
+                    </div>
+                `;
+
+            }).join('');
+        }
+
+        window.selectStudentClass = function(key) {
+
+            selectedStudentClass = key;
+
+            document.getElementById('studentsTopSub').textContent =
+                key + ' এর শিক্ষার্থী তালিকা — রোল, নাম বা অভিভাবকের নাম দিয়ে খুঁজুন।';
+
+            renderStudentClassCards();
+
+            document.getElementById('studentsListArea').style.display = 'block';
+
+            applyStudentClassFilter();
+
+            document.getElementById('studentsListArea').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        };
+
+        function applyStudentClassFilter() {
+
+            const q = document.getElementById('studentSearch').value.trim().toLowerCase();
+
+            let list = allStudentsCache.filter(s => s.className === selectedStudentClass);
+
+            if (q) {
+                list = list.filter(s =>
+                    String(s.roll).toLowerCase().includes(q) ||
+                    (s.name || '').toLowerCase().includes(q) ||
+                    (s.mobile || '').toLowerCase().includes(q) ||
+                    (s.guardian || '').toLowerCase().includes(q)
+                );
+            }
+
+            drawStudentsTable(list);
+        }
+
+        function drawStudentsTable(list) {
+
+            const wrap = document.getElementById('studentsTableWrap');
+
+            if (!list.length) {
+                wrap.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 20c0-4 3.5-6 8-6s8 2 8 6M12 12a4 4 0 100-8 4 4 0 000 8z"/>
+                        </svg>
+                        <div>এখনো কোনো শিক্ষার্থী পাওয়া যায়নি।</div>
+                    </div>
+                `;
+                return;
+            }
+
+            const rows = list.map(s => `
+                <tr>
+                    <td data-label="রোল" class="student-roll">
+                        <span class="roll-chip">${escapeHtml(toBn(s.roll))}</span>
+                    </td>
+                    <td data-label="নাম" class="student-name">${escapeHtml(s.name)}</td>
+                    <td data-label="শ্রেণি" class="student-class">${escapeHtml(s.className || '-')}</td>
+                    <td data-label="পিতার নাম" class="student-father">${escapeHtml(s.father)}</td>
+                    <td data-label="ঠিকানা" class="student-address">${escapeHtml(s.village)}, ${escapeHtml(s.upazila)}</td>
+                    <td data-label="অভিভাবক" class="student-guardian">${escapeHtml(s.guardian)}</td>
+                    <td data-label="মোবাইল" class="student-mobile">${escapeHtml(s.mobile)}</td>
+                </tr>
+            `).join('');
+
+            wrap.innerHTML = `
+                <table>
+                    <colgroup>
+                        <col class="col-roll"><col class="col-name"><col class="col-class">
+                        <col class="col-father"><col class="col-addr"><col class="col-guard"><col class="col-mobile">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>রোল</th><th>নাম</th><th>শ্রেণি</th><th>পিতার নাম</th>
+                            <th>ঠিকানা</th><th>অভিভাবক</th><th>মোবাইল</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            `;
+        }
+
+        document.getElementById('studentSearch').addEventListener('input', () => {
+            if (!selectedStudentClass) return;
+            applyStudentClassFilter();
+        });
+
+
+        /* =========================================================
+           FEE REGISTER (view only)
+        ========================================================= */
+
+        let ledgerYear = new Date().getFullYear();
+        let allStudentsFull = [];
+        let selectedClass = null;
+        let ledgerStudents = [];
+        let ledgerFeesByRoll = {};
+        let ledgerSearchTerm = '';
+        let currentSettleTs = 0;
+
+        document.getElementById('yearLabel').textContent = toBn(ledgerYear);
+
+        document.getElementById('yearPrev').addEventListener('click', () => {
+            ledgerYear -= 1;
+            document.getElementById('yearLabel').textContent = toBn(ledgerYear);
+            drawLedgerTable();
+        });
+
+        document.getElementById('yearNext').addEventListener('click', () => {
+            ledgerYear += 1;
+            document.getElementById('yearLabel').textContent = toBn(ledgerYear);
+            drawLedgerTable();
+        });
+
+        document.getElementById('ledgerSearch').addEventListener('input', e => {
+            ledgerSearchTerm = e.target.value.trim().toLowerCase();
+            drawLedgerTable();
+        });
+
+        function renderClassCards() {
+
+            const wrap = document.getElementById('classSelector');
+
+            wrap.innerHTML = classDefs.map(c => {
+
+                const count = allStudentsFull.filter(s => s.className === c.key).length;
+                const activeCls = selectedClass === c.key ? 'active' : '';
+
+                return `
+                    <div class="class-card ${activeCls}" onclick="selectClass('${escapeHtml(c.key)}')">
+                        <span class="cls-icon-wrap">
+                            ${classIconSvg}
+                            <span class="cls-badge">${c.badge}</span>
+                        </span>
+                        <span class="cls-label">${c.key}</span>
+                        <span class="cls-count">${toBn(count)} জন শিক্ষার্থী</span>
+                    </div>
+                `;
+
+            }).join('');
+        }
+
+        window.selectClass = async function(key) {
+
+            selectedClass = key;
+
+            document.getElementById('feeTopSub').textContent =
+                key + ' এর বেতন খাতা — যেকোনো মাসের ঘরে পরিশোধিত বেতনের পরিমাণ দেখা যাবে।';
+
+            renderClassCards();
+
+            document.getElementById('ledgerArea').style.display = 'block';
+
+            await loadClassLedger(key);
+
+            document.getElementById('ledgerArea').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        };
+
+        async function loadClassLedger(key) {
+
+            const wrap = document.getElementById('ledgerWrap');
+            wrap.innerHTML = '<div class="loading">বেতন খাতা লোড হচ্ছে...</div>';
+
+            document.getElementById('yearLabel').textContent = toBn(ledgerYear);
+
+            ledgerStudents = allStudentsFull.filter(s => s.className === key);
+            ledgerFeesByRoll = {};
+
+            for (const s of ledgerStudents) {
+                ledgerFeesByRoll[s.roll] = await getFees(s.roll, s.className);
+            }
+
+            currentSettleTs = await getSettleTimestamp(key);
+
+            updateSettleDisplay();
+            drawLedgerTable();
+        }
+
+        async function getSettleTimestamp(className) {
+
+            const raw = await storeGet('settle:' + classCode(className));
+            if (!raw) return 0;
+
+            try {
+                return Number(JSON.parse(raw).timestamp) || 0;
+            } catch (e) {
+                return 0;
+            }
+        }
+
+        function computeRunningTotal() {
+
+            let total = 0;
+
+            for (const roll in ledgerFeesByRoll) {
+                const list = ledgerFeesByRoll[roll] || [];
+                for (const f of list) {
+                    if (Number(f.id) > currentSettleTs) {
+                        total += Number(f.amount) || 0;
+                    }
+                }
+            }
+
+            return total;
+        }
+
+        function updateSettleDisplay() {
+            const el = document.getElementById('settleAmt');
+            if (el) el.textContent = fmtTaka(computeRunningTotal());
+        }
+
+        async function refreshFeesTabData() {
+
+            allStudentsFull = await listStudents();
+            renderClassCards();
+
+            if (selectedClass) await loadClassLedger(selectedClass);
+        }
+
+        async function renderFeeLedger() {
+            await refreshFeesTabData();
+        }
+
+        function monthAmount(roll, monthIdx, year) {
+
+            const list = ledgerFeesByRoll[roll] || [];
+
+            return list
+                .filter(f => f.month === bnMonths[monthIdx] && Number(f.year) === Number(year))
+                .reduce((sum, f) => sum + (Number(f.amount) || 0), 0);
+        }
+
+        function drawLedgerTable() {
+
+            const wrap = document.getElementById('ledgerWrap');
+
+            let students = ledgerStudents;
+
+            if (ledgerSearchTerm) {
+                students = students.filter(s =>
+                    String(s.roll).toLowerCase().includes(ledgerSearchTerm) ||
+                    (s.name || '').toLowerCase().includes(ledgerSearchTerm) ||
+                    (s.father || '').toLowerCase().includes(ledgerSearchTerm)
+                );
+            }
+
+            if (!students.length) {
+                wrap.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 20c0-4 3.5-6 8-6s8 2 8 6M12 12a4 4 0 100-8 4 4 0 000 8z"/>
+                        </svg>
+                        <div>${ledgerSearchTerm ? 'কোনো মিল পাওয়া যায়নি।' : 'এখনো কোনো শিক্ষার্থী পাওয়া যায়নি।'}</div>
+                    </div>
+                `;
+                return;
+            }
+
+            const monthTotals = new Array(12).fill(0);
+            let grandTotal = 0;
+
+            const bodyRows = students.map(s => {
+
+                let rowTotal = 0;
+
+                const cells = bnMonths.map((mName, idx) => {
+
+                    const amt = monthAmount(s.roll, idx, ledgerYear);
+                    monthTotals[idx] += amt;
+                    rowTotal += amt;
+
+                    const cellContent = amt > 0
+                        ? `<span class="paid-amt">${fmtTaka(amt)}</span>`
+                        : `<span class="unpaid-dash">—</span>`;
+
+                    return `<td>${cellContent}</td>`;
+
+                }).join('');
+
+                grandTotal += rowTotal;
+
+                return `
+                    <tr>
+                        <td class="col-roll"><span class="roll-chip">${toBn(s.roll)}</span></td>
+                        <td class="col-name">${escapeHtml(s.name)}</td>
+                        <td class="col-father">${escapeHtml(s.father)}</td>
+                        ${cells}
+                        <td class="col-total">${fmtTaka(rowTotal)}</td>
+                    </tr>
+                `;
+
+            }).join('');
+
+            const monthHeaders = bnMonthsShort.map(m => `<th>${m}</th>`).join('');
+            const footerMonthCells = monthTotals.map(t => `<td>${fmtTaka(t)}</td>`).join('');
+
+            wrap.innerHTML = `
+                <table class="ledger">
+                    <thead>
+                        <tr>
+                            <th class="col-roll">রোল</th>
+                            <th class="col-name">নাম</th>
+                            <th class="col-father">পিতার নাম</th>
+                            ${monthHeaders}
+                            <th class="col-total">মোট</th>
+                        </tr>
+                    </thead>
+                    <tbody>${bodyRows}</tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="col-roll"></td>
+                            <td class="col-name">সর্বমোট</td>
+                            <td class="col-father"></td>
+                            ${footerMonthCells}
+                            <td class="col-grand">${fmtTaka(grandTotal)}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            `;
+        }
+
+
+        /* =========================================================
+           INITIALIZE
+        ========================================================= */
+
+        Promise.all([
+            renderStudentsTable(),
+            renderFeeLedger()
+        ]).catch(console.error);
+
+        window.firebaseReady
+            .then(async db => {
+                if (!db) return;
+                await loadFirebaseDataCache(db);
+                await Promise.all([renderStudentsTable(), renderFeeLedger()]);
+            })
+            .catch(console.error);
+
+    </script>
+
+
+    <!-- =========================================================
+         FIREBASE (read-only usage — only get() is imported)
+    ========================================================= -->
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCIoSIq3Ci9wODl_OMk5XDMrAK7mVLQvzs",
+            authDomain: "madrasa-admission-system.firebaseapp.com",
+            databaseURL: "https://madrasa-admission-system-default-rtdb.firebaseio.com",
+            projectId: "madrasa-admission-system",
+            storageBucket: "madrasa-admission-system.firebasestorage.app",
+            messagingSenderId: "722552487890",
+            appId: "1:722552487890:web:7a8f6d8deb5da44c11520b"
+        };
+
+        try {
+
+            const app = initializeApp(firebaseConfig);
+            const db = getDatabase(app);
+
+            window.firebaseApp = app;
+            window.firebaseDb = db;
+            window.firebaseFns = { ref, get };
+
+            if (window.__resolveFirebaseReady) window.__resolveFirebaseReady(db);
+
+        } catch (error) {
+
+            console.error('Firebase initialization failed:', error);
+            if (window.__resolveFirebaseReady) window.__resolveFirebaseReady(null);
+
+        }
+
+    </script>
+
+</body>
+</html>
